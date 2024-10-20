@@ -6,8 +6,6 @@
 <div align="center">
 <!-- markdownlint-restore -->
 
-# Litestar HTMX
-
-The HTMX Plugin for Litestar
+# The HTMX Plugin for Litestar
 
 See the [documentation](https://docs.litestar.dev/latest/usage/htmx.html) for usage details

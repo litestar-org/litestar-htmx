@@ -1,13 +1,14 @@
 from typing import Any, Optional
 
+import pytest
 from litestar import MediaType, get
 from litestar.contrib.htmx._utils import HTMXHeaders
 from litestar.contrib.htmx.request import HTMXRequest
 from litestar.status_codes import HTTP_200_OK
 from litestar.testing import create_test_client
-import pytest
 
 pytestmark = pytest.mark.anyio
+
 
 def test_health_check() -> None:
     @get("/health-check", media_type=MediaType.TEXT)
