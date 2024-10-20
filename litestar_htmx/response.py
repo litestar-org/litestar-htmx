@@ -4,8 +4,11 @@ from typing import Any, Generic, TypeVar
 from urllib.parse import quote
 
 from litestar import Response
-from litestar.contrib.htmx._utils import HTMX_STOP_POLLING, get_headers
-from litestar.contrib.htmx.types import (
+from litestar.response import Template
+from litestar.status_codes import HTTP_200_OK
+
+from litestar_htmx._utils import HTMX_STOP_POLLING, get_headers
+from litestar_htmx.types import (
     EventAfterType,
     HtmxHeaderType,
     LocationType,
@@ -13,8 +16,6 @@ from litestar.contrib.htmx.types import (
     ReSwapMethod,
     TriggerEventType,
 )
-from litestar.response import Template
-from litestar.status_codes import HTTP_200_OK
 
 __all__ = (
     "ClientRedirect",

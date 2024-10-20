@@ -7,9 +7,10 @@ from urllib.parse import unquote, urlsplit, urlunsplit
 
 from litestar import Request
 from litestar.connection.base import empty_receive, empty_send
-from litestar.contrib.htmx._utils import HTMXHeaders
 from litestar.exceptions import SerializationException
 from litestar.serialization import decode_json
+
+from litestar_htmx._utils import HTMXHeaders
 
 __all__ = ("HTMXDetails", "HTMXRequest", "HTMXHeaders")
 
