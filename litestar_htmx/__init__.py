@@ -14,6 +14,14 @@ from litestar_htmx.response import (
     Retarget,
     TriggerEvent,
 )
+from litestar_htmx.types import (
+    EventAfterType,
+    HtmxHeaderType,
+    LocationType,
+    PushUrlType,
+    ReSwapMethod,
+    TriggerEventType,
+)
 
 __all__ = (
     "HTMXPlugin",
@@ -30,4 +38,10 @@ __all__ = (
     "Retarget",
     "TriggerEvent",
     "HTMXTemplate",
+    "HtmxHeaderType",
+    "LocationType",
+    "TriggerEventType",
+    "EventAfterType",
+    "PushUrlType",
+    "ReSwapMethod",
 )
