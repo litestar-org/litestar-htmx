@@ -3,9 +3,15 @@ from typing import Any
 
 import pytest
 from litestar import get
-from litestar.contrib.htmx._utils import HTMXHeaders
-from litestar.contrib.htmx.request import HTMXRequest
-from litestar.contrib.htmx.response import (
+from litestar.contrib.jinja import JinjaTemplateEngine
+from litestar.contrib.mako import MakoTemplateEngine
+from litestar.status_codes import HTTP_200_OK, HTTP_500_INTERNAL_SERVER_ERROR
+from litestar.template.config import TemplateConfig
+from litestar.testing import create_test_client
+
+from litestar_htmx._utils import HTMXHeaders
+from litestar_htmx.request import HTMXRequest
+from litestar_htmx.response import (
     ClientRedirect,
     ClientRefresh,
     HTMXTemplate,
@@ -17,11 +23,6 @@ from litestar.contrib.htmx.response import (
     Retarget,
     TriggerEvent,
 )
-from litestar.contrib.jinja import JinjaTemplateEngine
-from litestar.contrib.mako import MakoTemplateEngine
-from litestar.status_codes import HTTP_200_OK, HTTP_500_INTERNAL_SERVER_ERROR
-from litestar.template.config import TemplateConfig
-from litestar.testing import create_test_client
 
 pytestmark = pytest.mark.anyio
 
