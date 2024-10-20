@@ -8,6 +8,18 @@ from typing import TYPE_CHECKING
 from litestar.plugins import InitPluginProtocol
 
 from litestar_htmx.request import HTMXRequest
+from litestar_htmx.response import (
+    ClientRedirect,
+    ClientRefresh,
+    HTMXTemplate,
+    HXLocation,
+    HXStopPolling,
+    PushUrl,
+    ReplaceUrl,
+    Reswap,
+    Retarget,
+    TriggerEvent,
+)
 
 if TYPE_CHECKING:
     from litestar.config.app import AppConfig
@@ -21,7 +33,7 @@ class HtmxConfig:
     template_config: TemplateConfig
 
 
-class HtmxPlugin(InitPluginProtocol):
+class HTMXPlugin(InitPluginProtocol):
     """Flash messages Plugin."""
 
     def __init__(self, config: HtmxConfig):
@@ -42,5 +54,17 @@ class HtmxPlugin(InitPluginProtocol):
             The application configuration with the message callable registered.
         """
         app_config.request_class = HTMXRequest
-        app_config.signature_types = [HTMXRequest]
+        app_config.signature_types = [
+            HTMXRequest,
+            ClientRedirect,
+            ClientRefresh,
+            HTMXTemplate,
+            HXLocation,
+            HXStopPolling,
+            PushUrl,
+            ReplaceUrl,
+            Reswap,
+            Retarget,
+            TriggerEvent,
+        ]
         return app_config

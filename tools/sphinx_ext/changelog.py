@@ -27,7 +27,7 @@ class ChangeDirective(SphinxDirective):
     required_arguments = 1
     has_content = True
     final_argument_whitespace = True
-    option_spec: ClassVar[dict[str, Any]] = {
+    option_spec: ClassVar[dict[str, Any]] = {  # pyright: ignore[reportIncompatibleVariableOverride]
         "type": partial(directives.choice, values=("feature", "bugfix", "misc")),
         "breaking": directives.flag,
         "issue": directives.unchanged,
@@ -75,7 +75,7 @@ class ChangeDirective(SphinxDirective):
 class ChangelogDirective(SphinxDirective):
     required_arguments = 1
     has_content = True
-    option_spec: ClassVar[dict[str, Any]] = {"date": directives.unchanged}
+    option_spec: ClassVar[dict[str, Any]] = {"date": directives.unchanged}  # pyright: ignore[reportIncompatibleVariableOverride]
 
     def run(self) -> list[nodes.Node]:
         self.assert_has_content()

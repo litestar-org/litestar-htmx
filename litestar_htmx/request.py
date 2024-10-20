@@ -11,7 +11,7 @@ from litestar.contrib.htmx._utils import HTMXHeaders
 from litestar.exceptions import SerializationException
 from litestar.serialization import decode_json
 
-__all__ = ("HTMXDetails", "HTMXRequest")
+__all__ = ("HTMXDetails", "HTMXRequest", "HTMXHeaders")
 
 
 if TYPE_CHECKING:

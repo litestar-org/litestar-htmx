@@ -6,7 +6,7 @@ import ast
 import importlib
 import inspect
 import re
-from functools import cache
+from functools import cache  # pyright: ignore[reportAttributeAccessIssue]
 from pathlib import Path
 from typing import TYPE_CHECKING
 
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
 
 @cache
 def _get_module_ast(source_file: str) -> ast.AST | ast.Module:
-    return ast.parse(Path(source_file).read_text())
+    return ast.parse(Path(source_file).read_text(encoding="utf-8"))
 
 
 def _get_import_nodes(nodes: list[ast.stmt]) -> Generator[ast.Import | ast.ImportFrom, None, None]:
@@ -41,9 +41,9 @@ def get_module_global_imports(module_import_path: str, reference_target_source_o
     """
     module = importlib.import_module(module_import_path)
     obj = getattr(module, reference_target_source_obj)
-    tree = _get_module_ast(inspect.getsourcefile(obj))
+    tree = _get_module_ast(inspect.getsourcefile(obj))  # pyright: ignore[reportArgumentType]
 
-    import_nodes = _get_import_nodes(tree.body)
+    import_nodes = _get_import_nodes(tree.body)  # type: ignore[attr-defined]
     return {path.asname or path.name for import_node in import_nodes for path in import_node.names}
 
 
@@ -75,7 +75,7 @@ def on_warn_missing_reference(app: Sphinx, domain: str, node: Node) -> bool | No
     # to suppress specific warnings
     source_line = get_source_line(node)[0]
     source = source_line.split(" ")[-1]
-    if target in ignore_refs.get(source, []):
+    if target in ignore_refs.get(source, []):  # type: ignore[operator]
         return True
     ignore_ref_rgs = {rg: targets for rg, targets in ignore_refs.items() if isinstance(rg, re.Pattern)}
     for pattern, targets in ignore_ref_rgs.items():
@@ -83,13 +83,13 @@ def on_warn_missing_reference(app: Sphinx, domain: str, node: Node) -> bool | No
             continue
         if isinstance(targets, set) and target in targets:
             return True
-        if targets.match(target):
+        if targets.match(target):  # pyright: ignore[reportAttributeAccessIssue]
             return True
 
     return None
 
 
-def on_missing_reference(app: Sphinx, env: BuildEnvironment, node: pending_xref, contnode: Element):
+def on_missing_reference(app: Sphinx, env: BuildEnvironment, node: pending_xref, contnode: Element) -> Element | None:
     if not hasattr(node, "attributes"):
         return None
 
@@ -97,7 +97,7 @@ def on_missing_reference(app: Sphinx, env: BuildEnvironment, node: pending_xref,
     target = attributes["reftarget"]
     py_domain = env.domains["py"]
 
-    # autodoc sometimes incorrectly resolves these types, so we try to resolve them as py:data fist and fall back to any
+    # autodoc sometimes incorrectly resolves these types, so we try to resolve them as py:data first and fall back to any
     new_node = py_domain.resolve_xref(env, node["refdoc"], app.builder, "data", target, node, contnode)
     if new_node is None:
         resolved_xrefs = py_domain.resolve_any_xref(env, node["refdoc"], app.builder, target, node, contnode)
@@ -110,7 +110,7 @@ def on_missing_reference(app: Sphinx, env: BuildEnvironment, node: pending_xref,
 def on_env_before_read_docs(app: Sphinx, env: BuildEnvironment, docnames: set[str]) -> None:
     tmp_examples_path = Path.cwd() / "docs/_build/_tmp_examples"
     tmp_examples_path.mkdir(exist_ok=True, parents=True)
-    env.tmp_examples_path = tmp_examples_path
+    env.tmp_examples_path = tmp_examples_path  # pyright: ignore[reportAttributeAccessIssue]
 
 
 def setup(app: Sphinx) -> dict[str, bool]:

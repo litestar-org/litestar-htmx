@@ -1,8 +1,8 @@
 :orphan:
 
-==================
-Type Lens Releases
-==================
+======================
+Litestar HTMX Releases
+======================
 
 Version Numbering
 -----------------
