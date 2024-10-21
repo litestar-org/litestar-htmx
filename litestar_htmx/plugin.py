@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
 from typing import TYPE_CHECKING
 
 from litestar.plugins import InitPluginProtocol
@@ -23,26 +22,13 @@ from litestar_htmx.response import (
 
 if TYPE_CHECKING:
     from litestar.config.app import AppConfig
-    from litestar.template import TemplateConfig
-
-
-@dataclass
-class HtmxConfig:
-    """Configuration for Flash messages."""
-
-    template_config: TemplateConfig
 
 
 class HTMXPlugin(InitPluginProtocol):
     """Flash messages Plugin."""
 
-    def __init__(self, config: HtmxConfig):
-        """Initialize the plugin.
-
-        Args:
-            config: Configuration for flash messages, including the template engine instance.
-        """
-        self.config = config
+    def __init__(self):
+        """Initialize the plugin."""
 
     def on_app_init(self, app_config: AppConfig) -> AppConfig:
         """Register the message callable on the template engine instance.
