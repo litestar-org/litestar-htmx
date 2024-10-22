@@ -172,72 +172,58 @@ data-aria-dark="Switch to auto color mode">
 </span><span data-line="2">
 </span><span data-line="3"><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
 </span><span data-line="4">
-</span><span data-line="5"><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-</span><span data-line="6"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
-</span><span data-line="7">
-</span><span data-line="8"><span class="kn">from</span> <span class="nn">litestar.plugins</span> <span class="kn">import</span> <span class="n">InitPluginProtocol</span>
-</span><span data-line="9">
-</span><span data-line="10"><span class="kn">from</span> <span class="nn">litestar_htmx.request</span> <span class="kn">import</span> <span class="n">HTMXRequest</span>
-</span><span data-line="11"><span class="kn">from</span> <span class="nn">litestar_htmx.response</span> <span class="kn">import</span> <span class="p">(</span>
-</span><span data-line="12">    <span class="n">ClientRedirect</span><span class="p">,</span>
-</span><span data-line="13">    <span class="n">ClientRefresh</span><span class="p">,</span>
-</span><span data-line="14">    <span class="n">HTMXTemplate</span><span class="p">,</span>
-</span><span data-line="15">    <span class="n">HXLocation</span><span class="p">,</span>
-</span><span data-line="16">    <span class="n">HXStopPolling</span><span class="p">,</span>
-</span><span data-line="17">    <span class="n">PushUrl</span><span class="p">,</span>
-</span><span data-line="18">    <span class="n">ReplaceUrl</span><span class="p">,</span>
-</span><span data-line="19">    <span class="n">Reswap</span><span class="p">,</span>
-</span><span data-line="20">    <span class="n">Retarget</span><span class="p">,</span>
-</span><span data-line="21">    <span class="n">TriggerEvent</span><span class="p">,</span>
-</span><span data-line="22"><span class="p">)</span>
-</span><span data-line="23">
-</span><span data-line="24"><span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-</span><span data-line="25">    <span class="kn">from</span> <span class="nn">litestar.config.app</span> <span class="kn">import</span> <span class="n">AppConfig</span>
-</span><span data-line="26">    <span class="kn">from</span> <span class="nn">litestar.template</span> <span class="kn">import</span> <span class="n">TemplateConfig</span>
-</span><span data-line="27">
-</span><span data-line="28">
-<div class="viewcode-block" id="HtmxConfig"><a class="viewcode-back" href="../../reference/plugin.html#litestar_htmx.plugin.HtmxConfig">[docs]</a></span><span data-line="29"><span class="nd">@dataclass</span>
-</span><span data-line="30"><span class="k">class</span> <span class="nc">HtmxConfig</span><span class="p">:</span>
-</span><span data-line="31"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Configuration for Flash messages.&quot;&quot;&quot;</span>
+</span><span data-line="5"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+</span><span data-line="6">
+</span><span data-line="7"><span class="kn">from</span> <span class="nn">litestar.plugins</span> <span class="kn">import</span> <span class="n">InitPluginProtocol</span>
+</span><span data-line="8">
+</span><span data-line="9"><span class="kn">from</span> <span class="nn">litestar_htmx.request</span> <span class="kn">import</span> <span class="n">HTMXRequest</span>
+</span><span data-line="10"><span class="kn">from</span> <span class="nn">litestar_htmx.response</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span data-line="11">    <span class="n">ClientRedirect</span><span class="p">,</span>
+</span><span data-line="12">    <span class="n">ClientRefresh</span><span class="p">,</span>
+</span><span data-line="13">    <span class="n">HTMXTemplate</span><span class="p">,</span>
+</span><span data-line="14">    <span class="n">HXLocation</span><span class="p">,</span>
+</span><span data-line="15">    <span class="n">HXStopPolling</span><span class="p">,</span>
+</span><span data-line="16">    <span class="n">PushUrl</span><span class="p">,</span>
+</span><span data-line="17">    <span class="n">ReplaceUrl</span><span class="p">,</span>
+</span><span data-line="18">    <span class="n">Reswap</span><span class="p">,</span>
+</span><span data-line="19">    <span class="n">Retarget</span><span class="p">,</span>
+</span><span data-line="20">    <span class="n">TriggerEvent</span><span class="p">,</span>
+</span><span data-line="21"><span class="p">)</span>
+</span><span data-line="22">
+</span><span data-line="23"><span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+</span><span data-line="24">    <span class="kn">from</span> <span class="nn">litestar.config.app</span> <span class="kn">import</span> <span class="n">AppConfig</span>
+</span><span data-line="25">
+</span><span data-line="26">
+<div class="viewcode-block" id="HTMXPlugin"><a class="viewcode-back" href="../../reference/plugin.html#litestar_htmx.plugin.HTMXPlugin">[docs]</a></span><span data-line="27"><span class="k">class</span> <span class="nc">HTMXPlugin</span><span class="p">(</span><span class="n">InitPluginProtocol</span><span class="p">):</span>
+</span><span data-line="28"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Flash messages Plugin.&quot;&quot;&quot;</span>
+</span><span data-line="29">
+<div class="viewcode-block" id="HTMXPlugin.__init__"><a class="viewcode-back" href="../../reference/plugin.html#litestar_htmx.plugin.HTMXPlugin.__init__">[docs]</a></span><span data-line="30">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span data-line="31"><span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the plugin.&quot;&quot;&quot;</span></div>
 </span><span data-line="32">
-</span><span data-line="33">    <span class="n">template_config</span><span class="p">:</span> <span class="n">TemplateConfig</span></div>
-</span><span data-line="34">
+<div class="viewcode-block" id="HTMXPlugin.on_app_init"><a class="viewcode-back" href="../../reference/plugin.html#litestar_htmx.plugin.HTMXPlugin.on_app_init">[docs]</a></span><span data-line="33">    <span class="k">def</span> <span class="nf">on_app_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app_config</span><span class="p">:</span> <span class="n">AppConfig</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AppConfig</span><span class="p">:</span>
+</span><span data-line="34"><span class="w">        </span><span class="sd">&quot;&quot;&quot;Register the message callable on the template engine instance.</span>
 </span><span data-line="35">
-<div class="viewcode-block" id="HTMXPlugin"><a class="viewcode-back" href="../../reference/plugin.html#litestar_htmx.plugin.HTMXPlugin">[docs]</a></span><span data-line="36"><span class="k">class</span> <span class="nc">HTMXPlugin</span><span class="p">(</span><span class="n">InitPluginProtocol</span><span class="p">):</span>
-</span><span data-line="37"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Flash messages Plugin.&quot;&quot;&quot;</span>
+</span><span data-line="36"><span class="sd">        Args:</span>
+</span><span data-line="37"><span class="sd">            app_config: The application configuration.</span>
 </span><span data-line="38">
-<div class="viewcode-block" id="HTMXPlugin.__init__"><a class="viewcode-back" href="../../reference/plugin.html#litestar_htmx.plugin.HTMXPlugin.__init__">[docs]</a></span><span data-line="39">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">HtmxConfig</span><span class="p">):</span>
-</span><span data-line="40"><span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the plugin.</span>
-</span><span data-line="41">
-</span><span data-line="42"><span class="sd">        Args:</span>
-</span><span data-line="43"><span class="sd">            config: Configuration for flash messages, including the template engine instance.</span>
-</span><span data-line="44"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span data-line="45">        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">config</span></div>
-</span><span data-line="46">
-<div class="viewcode-block" id="HTMXPlugin.on_app_init"><a class="viewcode-back" href="../../reference/plugin.html#litestar_htmx.plugin.HTMXPlugin.on_app_init">[docs]</a></span><span data-line="47">    <span class="k">def</span> <span class="nf">on_app_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app_config</span><span class="p">:</span> <span class="n">AppConfig</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AppConfig</span><span class="p">:</span>
-</span><span data-line="48"><span class="w">        </span><span class="sd">&quot;&quot;&quot;Register the message callable on the template engine instance.</span>
-</span><span data-line="49">
-</span><span data-line="50"><span class="sd">        Args:</span>
-</span><span data-line="51"><span class="sd">            app_config: The application configuration.</span>
-</span><span data-line="52">
-</span><span data-line="53"><span class="sd">        Returns:</span>
-</span><span data-line="54"><span class="sd">            The application configuration with the message callable registered.</span>
-</span><span data-line="55"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span data-line="56">        <span class="n">app_config</span><span class="o">.</span><span class="n">request_class</span> <span class="o">=</span> <span class="n">HTMXRequest</span>
-</span><span data-line="57">        <span class="n">app_config</span><span class="o">.</span><span class="n">signature_types</span> <span class="o">=</span> <span class="p">[</span>
-</span><span data-line="58">            <span class="n">HTMXRequest</span><span class="p">,</span>
-</span><span data-line="59">            <span class="n">ClientRedirect</span><span class="p">,</span>
-</span><span data-line="60">            <span class="n">ClientRefresh</span><span class="p">,</span>
-</span><span data-line="61">            <span class="n">HTMXTemplate</span><span class="p">,</span>
-</span><span data-line="62">            <span class="n">HXLocation</span><span class="p">,</span>
-</span><span data-line="63">            <span class="n">HXStopPolling</span><span class="p">,</span>
-</span><span data-line="64">            <span class="n">PushUrl</span><span class="p">,</span>
-</span><span data-line="65">            <span class="n">ReplaceUrl</span><span class="p">,</span>
-</span><span data-line="66">            <span class="n">Reswap</span><span class="p">,</span>
-</span><span data-line="67">            <span class="n">Retarget</span><span class="p">,</span>
-</span><span data-line="68">            <span class="n">TriggerEvent</span><span class="p">,</span>
-</span><span data-line="69">        <span class="p">]</span>
-</span><span data-line="70">        <span class="k">return</span> <span class="n">app_config</span></div></div>
+</span><span data-line="39"><span class="sd">        Returns:</span>
+</span><span data-line="40"><span class="sd">            The application configuration with the message callable registered.</span>
+</span><span data-line="41"><span class="sd">        &quot;&quot;&quot;</span>
+</span><span data-line="42">        <span class="n">app_config</span><span class="o">.</span><span class="n">request_class</span> <span class="o">=</span> <span class="n">HTMXRequest</span>
+</span><span data-line="43">        <span class="n">app_config</span><span class="o">.</span><span class="n">signature_types</span> <span class="o">=</span> <span class="p">[</span>
+</span><span data-line="44">            <span class="n">HTMXRequest</span><span class="p">,</span>
+</span><span data-line="45">            <span class="n">ClientRedirect</span><span class="p">,</span>
+</span><span data-line="46">            <span class="n">ClientRefresh</span><span class="p">,</span>
+</span><span data-line="47">            <span class="n">HTMXTemplate</span><span class="p">,</span>
+</span><span data-line="48">            <span class="n">HXLocation</span><span class="p">,</span>
+</span><span data-line="49">            <span class="n">HXStopPolling</span><span class="p">,</span>
+</span><span data-line="50">            <span class="n">PushUrl</span><span class="p">,</span>
+</span><span data-line="51">            <span class="n">ReplaceUrl</span><span class="p">,</span>
+</span><span data-line="52">            <span class="n">Reswap</span><span class="p">,</span>
+</span><span data-line="53">            <span class="n">Retarget</span><span class="p">,</span>
+</span><span data-line="54">            <span class="n">TriggerEvent</span><span class="p">,</span>
+</span><span data-line="55">        <span class="p">]</span>
+</span><span data-line="56">        <span class="k">return</span> <span class="n">app_config</span></div></div>
 </span></pre></div>
         </article><button class="back-to-top" type="button">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

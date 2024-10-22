@@ -118,10 +118,6 @@ data-aria-dark="Switch to auto color mode">
       <i class="i-lucide close"></i>
     </button>
     <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>On this page</h3><ul>
-<li><a class="reference internal" href="#litestar_htmx.plugin.HtmxConfig"><code class="docutils literal notranslate"><span class="pre">HtmxConfig</span></code></a><ul>
-<li><a class="reference internal" href="#litestar_htmx.plugin.HtmxConfig.__init__"><code class="docutils literal notranslate">__init__()</span></code></a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#litestar_htmx.plugin.HTMXPlugin"><code class="docutils literal notranslate"><span class="pre">HTMXPlugin</span></code></a><ul>
 <li><a class="reference internal" href="#litestar_htmx.plugin.HTMXPlugin.__init__"><code class="docutils literal notranslate">__init__()</span></code></a></li>
 <li><a class="reference internal" href="#litestar_htmx.plugin.HTMXPlugin.on_app_init"><code class="docutils literal notranslate">on_app_init()</span></code></a></li>
@@ -184,31 +180,14 @@ data-aria-dark="Switch to auto color mode">
 <span id="plugin"></span><h1>plugin<a class="headerlink" href="#module-litestar_htmx.plugin" title="Permalink to this heading">¶</a></h1>
 <p>Plugin for creating and retrieving flash messages.</p>
 <dl class="py class">
-<dt class="sig sig-object py" id="litestar_htmx.plugin.HtmxConfig">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">litestar_htmx.plugin.</span></span><span class="sig-name descname"><span class="pre">HtmxConfig</span></span><a class="reference internal" href="../_modules/litestar_htmx/plugin.html#HtmxConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#litestar_htmx.plugin.HtmxConfig" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Configuration for Flash messages.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="litestar_htmx.plugin.HtmxConfig.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">template_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TemplateConfig</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#litestar_htmx.plugin.HtmxConfig.__init__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
 <dt class="sig sig-object py" id="litestar_htmx.plugin.HTMXPlugin">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">litestar_htmx.plugin.</span></span><span class="sig-name descname"><span class="pre">HTMXPlugin</span></span><a class="reference internal" href="../_modules/litestar_htmx/plugin.html#HTMXPlugin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#litestar_htmx.plugin.HTMXPlugin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.litestar.dev/latest/reference/plugins/index.html#litestar.plugins.InitPluginProtocol" title="(in Litestar)"><code class="xref py py-class docutils literal notranslate"><span class="pre">InitPluginProtocol</span></code></a></p>
 <p>Flash messages Plugin.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="litestar_htmx.plugin.HTMXPlugin.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#litestar_htmx.plugin.HtmxConfig" title="litestar_htmx.plugin.HtmxConfig"><span class="pre">HtmxConfig</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/litestar_htmx/plugin.html#HTMXPlugin.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#litestar_htmx.plugin.HTMXPlugin.__init__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/litestar_htmx/plugin.html#HTMXPlugin.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#litestar_htmx.plugin.HTMXPlugin.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize the plugin.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>config</strong> – Configuration for flash messages, including the template engine instance.</p>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="py method">
