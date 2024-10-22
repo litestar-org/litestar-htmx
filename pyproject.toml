@@ -13,7 +13,7 @@ maintainers = [
 name = "litestar-htmx"
 readme = "README.md"
 requires-python = ">=3.8, <4.0"
-version = "0.2.2"
+version = "0.2.3"
 
 [build-system]
 build-backend = "hatchling.build"
@@ -69,34 +69,34 @@ ignore-words-list = "te"
 skip = 'uv.lock'
 
 [tool.coverage.run]
-omit = ["*/tests/*"]
-plugins = ["covdefaults"]
-source = ["litestar_htmx"]
 branch = true
 concurrency = ["multiprocessing"]
 disable_warnings = ["no-data-collected", "module-not-measured", "module-not-imported"]
+omit = ["*/tests/*"]
 parallel = true
+plugins = ["covdefaults"]
+source = ["litestar_htmx"]
 
 [tool.coverage.report]
 # Regexes for lines to exclude from consideration
 exclude_lines = [
-  # Have to re-enable the standard pragma
-  "pragma: no cover",
+    # Have to re-enable the standard pragma
+    "pragma: no cover",
 
-  # Don't complain about missing debug-only code:
-  "def __repr__",
-  "if self\\.debug",
+    # Don't complain about missing debug-only code:
+    "def __repr__",
+    "if self\\.debug",
 
-  # Don't complain if tests don't hit defensive assertion code:
-  "raise AssertionError",
-  "raise NotImplementedError",
+    # Don't complain if tests don't hit defensive assertion code:
+    "raise AssertionError",
+    "raise NotImplementedError",
 
-  # Don't complain if non-runnable code isn't run:
-  "if 0:",
-  "if __name__ == .__main__.:",
-  "if TYPE_CHECKING:",
-  'class .*\bProtocol\):',
-  '@(abc\.)?abstractmethod',
+    # Don't complain if non-runnable code isn't run:
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    'class .*\bProtocol\):',
+    '@(abc\.)?abstractmethod',
 ]
 
 [tool.pytest.ini_options]
