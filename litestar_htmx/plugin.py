@@ -45,7 +45,7 @@ class HTMXPlugin(InitPluginProtocol):
         self._config = config or HTMXConfig()
 
     @property
-    def config(self):
+    def config(self) -> HTMXConfig:
         return self._config
 
     def on_app_init(self, app_config: AppConfig) -> AppConfig:
