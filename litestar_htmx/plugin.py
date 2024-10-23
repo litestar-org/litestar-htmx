@@ -39,7 +39,8 @@ class HTMXPlugin(InitPluginProtocol):
         Returns:
             The application configuration with the message callable registered.
         """
-        app_config.request_class = HTMXRequest
+        if app_config.request_class is None:
+            app_config.request_class = HTMXRequest
         app_config.signature_types = [
             HTMXRequest,
             ClientRedirect,
