@@ -25,13 +25,13 @@ if TYPE_CHECKING:
 
 
 class HTMXPlugin(InitPluginProtocol):
-    """Flash messages Plugin."""
+    """HTMX Plugin."""
 
     def __init__(self) -> None:
         """Initialize the plugin."""
 
     def on_app_init(self, app_config: AppConfig) -> AppConfig:
-        """Register the message callable on the template engine instance.
+        """Register the HTMX configuration.
 
         Args:
             app_config: The application configuration.
