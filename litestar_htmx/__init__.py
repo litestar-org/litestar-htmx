@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from litestar_htmx.plugin import HTMXPlugin
+from litestar_htmx.plugin import HTMXConfig, HTMXPlugin
 from litestar_htmx.request import HTMXDetails, HTMXHeaders, HTMXRequest
 from litestar_htmx.response import (
     ClientRedirect,
@@ -25,6 +25,7 @@ from litestar_htmx.types import (
 
 __all__ = (
     "HTMXPlugin",
+    "HTMXConfig",
     "HTMXDetails",
     "HTMXHeaders",
     "HTMXRequest",
