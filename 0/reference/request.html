@@ -132,12 +132,12 @@ data-aria-dark="Switch to auto color mode">
 <li><a class="reference internal" href="#litestar_htmx.request.HTMXDetails.triggering_event"><code class="docutils literal notranslate">triggering_event</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#litestar_htmx.request.HTMXRequest"><code class="docutils literal notranslate"><span class="pre">HTMXRequest</span></code></a><ul>
-<li><a class="reference internal" href="#litestar_htmx.request.HTMXRequest.__init__"><code class="docutils literal notranslate">__init__()</span></code></a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#litestar_htmx.request.HTMXHeaders"><code class="docutils literal notranslate"><span class="pre">HTMXHeaders</span></code></a><ul>
 <li><a class="reference internal" href="#litestar_htmx.request.HTMXHeaders.__new__"><code class="docutils literal notranslate">__new__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#litestar_htmx.request.HTMXRequest"><code class="docutils literal notranslate"><span class="pre">HTMXRequest</span></code></a><ul>
+<li><a class="reference internal" href="#litestar_htmx.request.HTMXRequest.__init__"><code class="docutils literal notranslate">__init__()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -273,6 +273,18 @@ data-aria-dark="Switch to auto color mode">
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="litestar_htmx.request.HTMXHeaders">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">litestar_htmx.request.</span></span><span class="sig-name descname"><span class="pre">HTMXHeaders</span></span><a class="reference internal" href="../_modules/litestar_htmx/_utils.html#HTMXHeaders"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#litestar_htmx.request.HTMXHeaders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></a></p>
+<p>Enum for HTMX Headers</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="litestar_htmx.request.HTMXHeaders.__new__">
+<span class="sig-name descname"><span class="pre">__new__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#litestar_htmx.request.HTMXHeaders.__new__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="litestar_htmx.request.HTMXRequest">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">litestar_htmx.request.</span></span><span class="sig-name descname"><span class="pre">HTMXRequest</span></span><a class="reference internal" href="../_modules/litestar_htmx/request.html#HTMXRequest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#litestar_htmx.request.HTMXRequest" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.litestar.dev/latest/reference/connection.html#litestar.connection.Request" title="(in Litestar)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Request</span></code></a></p>
@@ -282,18 +294,6 @@ data-aria-dark="Switch to auto color mode">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scope:</span> <span class="pre">Scope</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">receive:</span> <span class="pre">Receive</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">empty_receive&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">send:</span> <span class="pre">Send</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">empty_send&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/litestar_htmx/request.html#HTMXRequest.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#litestar_htmx.request.HTMXRequest.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize <a class="reference internal" href="#litestar_htmx.request.HTMXRequest" title="litestar_htmx.request.HTMXRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTMXRequest</span></code></a></p>
 </dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="litestar_htmx.request.HTMXHeaders">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">litestar_htmx.request.</span></span><span class="sig-name descname"><span class="pre">HTMXHeaders</span></span><a class="reference internal" href="../_modules/litestar_htmx/_utils.html#HTMXHeaders"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#litestar_htmx.request.HTMXHeaders" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></a></p>
-<p>Enum for HTMX Headers</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="litestar_htmx.request.HTMXHeaders.__new__">
-<span class="sig-name descname"><span class="pre">__new__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#litestar_htmx.request.HTMXHeaders.__new__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 </dd></dl>
 
