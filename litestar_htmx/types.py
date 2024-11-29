@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING, Any, Literal, TypedDict, Union
 
-__all__ = ("HtmxHeaderType", "LocationType", "TriggerEventType", "EventAfterType", "PushUrlType", "ReSwapMethod")
+__all__ = ("EventAfterType", "HtmxHeaderType", "LocationType", "PushUrlType", "ReSwapMethod", "TriggerEventType")
 
 if TYPE_CHECKING:
     from typing_extensions import Required

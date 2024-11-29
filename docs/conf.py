@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import os
+from typing import Any
 
 from litestar_htmx.__metadata__ import __project__ as project
 from litestar_htmx.__metadata__ import __version__ as version
@@ -45,7 +46,7 @@ PY_ATTR = "py:attr"
 PY_OBJ = "py:obj"
 
 nitpicky = True
-nitpick_ignore = []
+nitpick_ignore: list[tuple[str, Any]] = []
 nitpick_ignore_regex = [
     (PY_RE, r"litestar_htmx.*\.T"),
 ]
