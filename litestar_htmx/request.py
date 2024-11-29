@@ -12,7 +12,7 @@ from litestar.serialization import decode_json
 
 from litestar_htmx._utils import HTMXHeaders
 
-__all__ = ("HTMXDetails", "HTMXRequest", "HTMXHeaders")
+__all__ = ("HTMXDetails", "HTMXHeaders", "HTMXRequest")
 
 
 if TYPE_CHECKING:
