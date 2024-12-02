@@ -2,6 +2,24 @@
 authors = [{ name = "Cody Fincher", email = "cody@litestar.dev" }]
 dependencies = []
 description = "HTMX Integration for Litesstar"
+license = {text = "MIT"}
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Natural Language :: English",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python",
+  "Topic :: Internet :: WWW/HTTP",
+  "Topic :: Software Development :: Libraries",
+  "Topic :: Software Development",
+  "Topic :: Internet",
+  "Topic :: Software Development :: Libraries :: Application Frameworks",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
 maintainers = [
     { name = "Litestar Developers", email = "hello@litestar.dev" },
     { name = "Cody Fincher", email = "cody@litestar.dev" },
