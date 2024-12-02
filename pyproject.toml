@@ -2,7 +2,7 @@
 authors = [{ name = "Cody Fincher", email = "cody@litestar.dev" }]
 dependencies = []
 description = "HTMX Integration for Litesstar"
-license = {text = "MIT"}
+license = { text = "MIT" }
 classifiers = [
   "License :: OSI Approved :: MIT License",
   "Natural Language :: English",
