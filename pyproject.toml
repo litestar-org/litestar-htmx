@@ -18,7 +18,7 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 dependencies = []
-description = "HTMX Integration for Litesstar"
+description = "HTMX Integration for Litestar"
 license = { text = "MIT" }
 maintainers = [
     { name = "Litestar Developers", email = "hello@litestar.dev" },
