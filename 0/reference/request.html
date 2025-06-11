@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" data-accent-color="amber" data-content_root="">
+<html lang="en" data-accent-color="amber" data-content_root="../">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>request - Litestar HTMX</title><link rel="shortcut icon" href="../_static/favicon.svg"/><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="response" href="response.html" /><link rel="prev" title="plugin" href="plugin.html" /><script>
     function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
     setColorMode(localStorage._theme||"auto");
   </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=397bb51e" />
-    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=83eaa723" />
+    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=d0008d65" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=20ff2c19" />
     <link rel="stylesheet" type="text/css" href="../_static/style.css?v=1d4867fe" />
-    <link rel="stylesheet" type="text/css" href="../_static/litestar-sphinx-theme.css?v=9989272a" />
+    <link rel="stylesheet" type="text/css" href="../_static/litestar-sphinx-theme.css?v=9a8390f1" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -160,11 +160,12 @@ data-aria-dark="Switch to auto color mode">
     </span>
   </span>
 </a><div class="edit-this-page">
-  <a href="https://github.com/cofin/litestar-htmx/blob/master/docs/reference/request.rst">Edit this page</a>
+  <a href="https://github.com/cofin/litestar-htmx/blob/main/docs/reference/request.rst">Edit this page</a>
 </div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
   </aside>
   <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
-  <main class="sy-main w-full max-sm:max-w-full print:pt-6"><div class="sy-breadcrumbs" role="navigation">
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+<div class="sy-breadcrumbs" role="navigation">
   <div class="sy-breadcrumbs-inner flex items-center">
     <div class="md:hidden mr-3">
       <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
@@ -194,51 +195,51 @@ data-aria-dark="Switch to auto color mode">
       <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
         <article class="yue" role="main">
           <section id="module-litestar_htmx.request">
-<span id="request"></span><h1>request<a class="headerlink" href="#module-litestar_htmx.request" title="Permalink to this heading">¶</a></h1>
+<span id="request"></span><h1>request<a class="headerlink" href="#module-litestar_htmx.request" title="Link to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="litestar_htmx.request.HTMXDetails">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">litestar_htmx.request.</span></span><span class="sig-name descname"><span class="pre">HTMXDetails</span></span><a class="reference internal" href="../_modules/litestar_htmx/request.html#HTMXDetails"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#litestar_htmx.request.HTMXDetails" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">litestar_htmx.request.</span></span><span class="sig-name descname"><span class="pre">HTMXDetails</span></span><a class="reference internal" href="../_modules/litestar_htmx/request.html#HTMXDetails"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#litestar_htmx.request.HTMXDetails" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>HTMXDetails holds all the values sent by HTMX client in headers and provide convenient properties.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="litestar_htmx.request.HTMXDetails.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.litestar.dev/latest/reference/connection.html#litestar.connection.Request" title="(in Litestar)"><span class="pre">Request</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/litestar_htmx/request.html#HTMXDetails.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#litestar_htmx.request.HTMXDetails.__init__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.litestar.dev/latest/reference/connection.html#litestar.connection.Request" title="(in Litestar)"><span class="pre">Request</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/litestar_htmx/request.html#HTMXDetails.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#litestar_htmx.request.HTMXDetails.__init__" title="Link to this definition">¶</a></dt>
 <dd><p>Initialize <a class="reference internal" href="#litestar_htmx.request.HTMXDetails" title="litestar_htmx.request.HTMXDetails"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTMXDetails</span></code></a></p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="litestar_htmx.request.HTMXDetails.__bool__">
-<span class="sig-name descname"><span class="pre">__bool__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="../_modules/litestar_htmx/request.html#HTMXDetails.__bool__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#litestar_htmx.request.HTMXDetails.__bool__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__bool__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="../_modules/litestar_htmx/request.html#HTMXDetails.__bool__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#litestar_htmx.request.HTMXDetails.__bool__" title="Link to this definition">¶</a></dt>
 <dd><p>Check if request is sent by an HTMX client.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="litestar_htmx.request.HTMXDetails.boosted">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">boosted</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><a class="headerlink" href="#litestar_htmx.request.HTMXDetails.boosted" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">boosted</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><a class="headerlink" href="#litestar_htmx.request.HTMXDetails.boosted" title="Link to this definition">¶</a></dt>
 <dd><p>Check if request is boosted.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="litestar_htmx.request.HTMXDetails.current_url">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">current_url</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><a class="headerlink" href="#litestar_htmx.request.HTMXDetails.current_url" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">current_url</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><a class="headerlink" href="#litestar_htmx.request.HTMXDetails.current_url" title="Link to this definition">¶</a></dt>
 <dd><p>Current url value sent by HTMX client.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="litestar_htmx.request.HTMXDetails.current_url_abs_path">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">current_url_abs_path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><a class="headerlink" href="#litestar_htmx.request.HTMXDetails.current_url_abs_path" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">current_url_abs_path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><a class="headerlink" href="#litestar_htmx.request.HTMXDetails.current_url_abs_path" title="Link to this definition">¶</a></dt>
 <dd><p>Current url abs path value, to get query and path parameter sent by HTMX client.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="litestar_htmx.request.HTMXDetails.history_restore_request">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">history_restore_request</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><a class="headerlink" href="#litestar_htmx.request.HTMXDetails.history_restore_request" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">history_restore_request</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><a class="headerlink" href="#litestar_htmx.request.HTMXDetails.history_restore_request" title="Link to this definition">¶</a></dt>
 <dd><p>If True then, request is for history restoration after a miss in the local history cache.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="litestar_htmx.request.HTMXDetails.prompt">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">prompt</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><a class="headerlink" href="#litestar_htmx.request.HTMXDetails.prompt" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">prompt</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><a class="headerlink" href="#litestar_htmx.request.HTMXDetails.prompt" title="Link to this definition">¶</a></dt>
 <dd><p>User Response to prompt.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="p">&lt;</span><span class="nt">button</span> <span class="na">hx-delete</span><span class="o">=</span><span class="s">&quot;/account&quot;</span> <span class="na">hx-prompt</span><span class="o">=</span><span class="s">&quot;Enter your account name to confirm deletion&quot;</span><span class="p">&gt;</span>Delete My Account<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </span></pre></div>
@@ -247,25 +248,25 @@ data-aria-dark="Switch to auto color mode">
 
 <dl class="py property">
 <dt class="sig sig-object py" id="litestar_htmx.request.HTMXDetails.target">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">target</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><a class="headerlink" href="#litestar_htmx.request.HTMXDetails.target" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">target</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><a class="headerlink" href="#litestar_htmx.request.HTMXDetails.target" title="Link to this definition">¶</a></dt>
 <dd><p>ID of the target element if provided on the element.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="litestar_htmx.request.HTMXDetails.trigger">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">trigger</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><a class="headerlink" href="#litestar_htmx.request.HTMXDetails.trigger" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">trigger</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><a class="headerlink" href="#litestar_htmx.request.HTMXDetails.trigger" title="Link to this definition">¶</a></dt>
 <dd><p>ID of the triggered element if provided on the element.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="litestar_htmx.request.HTMXDetails.trigger_name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">trigger_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><a class="headerlink" href="#litestar_htmx.request.HTMXDetails.trigger_name" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">trigger_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><a class="headerlink" href="#litestar_htmx.request.HTMXDetails.trigger_name" title="Link to this definition">¶</a></dt>
 <dd><p>Name of the triggered element if provided on the element.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="litestar_htmx.request.HTMXDetails.triggering_event">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">triggering_event</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.13)"><span class="pre">Any</span></a></em><a class="headerlink" href="#litestar_htmx.request.HTMXDetails.triggering_event" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">triggering_event</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.13)"><span class="pre">Any</span></a></em><a class="headerlink" href="#litestar_htmx.request.HTMXDetails.triggering_event" title="Link to this definition">¶</a></dt>
 <dd><p>Name of the triggered event.</p>
 <p>This value is added by <code class="docutils literal notranslate"><span class="pre">event-header</span></code> extension of HTMX to the <code class="docutils literal notranslate"><span class="pre">Triggering-Event</span></code> header to requests.</p>
 </dd></dl>
@@ -274,24 +275,24 @@ data-aria-dark="Switch to auto color mode">
 
 <dl class="py class">
 <dt class="sig sig-object py" id="litestar_htmx.request.HTMXHeaders">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">litestar_htmx.request.</span></span><span class="sig-name descname"><span class="pre">HTMXHeaders</span></span><a class="reference internal" href="../_modules/litestar_htmx/_utils.html#HTMXHeaders"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#litestar_htmx.request.HTMXHeaders" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">litestar_htmx.request.</span></span><span class="sig-name descname"><span class="pre">HTMXHeaders</span></span><a class="reference internal" href="../_modules/litestar_htmx/_utils.html#HTMXHeaders"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#litestar_htmx.request.HTMXHeaders" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></a></p>
 <p>Enum for HTMX Headers</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="litestar_htmx.request.HTMXHeaders.__new__">
-<span class="sig-name descname"><span class="pre">__new__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#litestar_htmx.request.HTMXHeaders.__new__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__new__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#litestar_htmx.request.HTMXHeaders.__new__" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="litestar_htmx.request.HTMXRequest">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">litestar_htmx.request.</span></span><span class="sig-name descname"><span class="pre">HTMXRequest</span></span><a class="reference internal" href="../_modules/litestar_htmx/request.html#HTMXRequest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#litestar_htmx.request.HTMXRequest" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">litestar_htmx.request.</span></span><span class="sig-name descname"><span class="pre">HTMXRequest</span></span><a class="reference internal" href="../_modules/litestar_htmx/request.html#HTMXRequest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#litestar_htmx.request.HTMXRequest" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.litestar.dev/latest/reference/connection.html#litestar.connection.Request" title="(in Litestar)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Request</span></code></a></p>
 <p>HTMX Request class to work with HTMX client.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="litestar_htmx.request.HTMXRequest.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scope:</span> <span class="pre">Scope</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">receive:</span> <span class="pre">Receive</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">empty_receive&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">send:</span> <span class="pre">Send</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">empty_send&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/litestar_htmx/request.html#HTMXRequest.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#litestar_htmx.request.HTMXRequest.__init__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scope:</span> <span class="pre">Scope</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">receive:</span> <span class="pre">Receive</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">empty_receive&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">send:</span> <span class="pre">Send</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">empty_send&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/litestar_htmx/request.html#HTMXRequest.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#litestar_htmx.request.HTMXRequest.__init__" title="Link to this definition">¶</a></dt>
 <dd><p>Initialize <a class="reference internal" href="#litestar_htmx.request.HTMXRequest" title="litestar_htmx.request.HTMXRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTMXRequest</span></code></a></p>
 </dd></dl>
 
@@ -351,12 +352,12 @@ data-aria-dark="Switch to auto color mode">
     </div>
   </div>
 </footer>
-      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=e43216b9"></script>
-      <script src="../_static/doctools.js?v=888ff710"></script>
-      <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../_static/documentation_options.js?v=8dde47fa"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../_static/copybutton.js?v=f281be69"></script>
       <script src="../_static/litestar-theme.js?v=ab2dcc9e"></script>
-      <script src="../_static/design-tabs.js?v=36754332"></script>
-      <script src="../_static/shibuya.js?v=e2e99575"></script></body>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../_static/shibuya.js?v=1d2088d1"></script></body>
 </html>

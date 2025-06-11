@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" data-accent-color="amber" data-content_root="">
+<html lang="en" data-accent-color="amber" data-content_root="../../">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>litestar_htmx._utils - Litestar HTMX</title><link rel="shortcut icon" href="../../_static/favicon.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
     function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
     setColorMode(localStorage._theme||"auto");
   </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
-    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=83eaa723" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=d0008d65" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
     <link rel="stylesheet" type="text/css" href="../../_static/style.css?v=1d4867fe" />
-    <link rel="stylesheet" type="text/css" href="../../_static/litestar-sphinx-theme.css?v=9989272a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/litestar-sphinx-theme.css?v=9a8390f1" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -138,7 +138,8 @@ data-aria-dark="Switch to auto color mode">
 </a><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
   </aside>
   <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
-  <main class="sy-main w-full max-sm:max-w-full print:pt-6"><div class="sy-breadcrumbs" role="navigation">
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+<div class="sy-breadcrumbs" role="navigation">
   <div class="sy-breadcrumbs-inner flex items-center">
     <div class="md:hidden mr-3">
       <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
@@ -168,14 +169,14 @@ data-aria-dark="Switch to auto color mode">
       <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
         <article class="yue" role="main">
           <h1>Source code for litestar_htmx._utils</h1><div class="highlight"><pre>
-<span></span><span data-line="1"><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span></span><span data-line="1"><span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 </span><span data-line="2">
-</span><span data-line="3"><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
-</span><span data-line="4"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">cast</span>
-</span><span data-line="5"><span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">quote</span>
+</span><span data-line="3"><span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
+</span><span data-line="4"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">cast</span>
+</span><span data-line="5"><span class="kn">from</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="kn">import</span> <span class="n">quote</span>
 </span><span data-line="6">
-</span><span data-line="7"><span class="kn">from</span> <span class="nn">litestar.exceptions</span> <span class="kn">import</span> <span class="n">ImproperlyConfiguredException</span>
-</span><span data-line="8"><span class="kn">from</span> <span class="nn">litestar.serialization</span> <span class="kn">import</span> <span class="n">encode_json</span>
+</span><span data-line="7"><span class="kn">from</span><span class="w"> </span><span class="nn">litestar.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">ImproperlyConfiguredException</span>
+</span><span data-line="8"><span class="kn">from</span><span class="w"> </span><span class="nn">litestar.serialization</span><span class="w"> </span><span class="kn">import</span> <span class="n">encode_json</span>
 </span><span data-line="9">
 </span><span data-line="10"><span class="n">__all__</span> <span class="o">=</span> <span class="p">(</span>
 </span><span data-line="11">    <span class="s2">&quot;HTMXHeaders&quot;</span><span class="p">,</span>
@@ -192,7 +193,7 @@ data-aria-dark="Switch to auto color mode">
 </span><span data-line="22">
 </span><span data-line="23">
 </span><span data-line="24"><span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-</span><span data-line="25">    <span class="kn">from</span> <span class="nn">litestar_htmx.types</span> <span class="kn">import</span> <span class="p">(</span>
+</span><span data-line="25">    <span class="kn">from</span><span class="w"> </span><span class="nn">litestar_htmx.types</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 </span><span data-line="26">        <span class="n">EventAfterType</span><span class="p">,</span>
 </span><span data-line="27">        <span class="n">HtmxHeaderType</span><span class="p">,</span>
 </span><span data-line="28">        <span class="n">LocationType</span><span class="p">,</span>
@@ -204,7 +205,9 @@ data-aria-dark="Switch to auto color mode">
 </span><span data-line="34"><span class="n">HTMX_STOP_POLLING</span> <span class="o">=</span> <span class="mi">286</span>
 </span><span data-line="35">
 </span><span data-line="36">
-<div class="viewcode-block" id="HTMXHeaders"><a class="viewcode-back" href="../../reference/request.html#litestar_htmx.request.HTMXHeaders">[docs]</a></span><span data-line="37"><span class="k">class</span> <span class="nc">HTMXHeaders</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Enum</span><span class="p">):</span>
+<div class="viewcode-block" id="HTMXHeaders">
+<a class="viewcode-back" href="../../reference/request.html#litestar_htmx.request.HTMXHeaders">[docs]</a>
+</span><span data-line="37"><span class="k">class</span><span class="w"> </span><span class="nc">HTMXHeaders</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Enum</span><span class="p">):</span>
 </span><span data-line="38"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Enum for HTMX Headers&quot;&quot;&quot;</span>
 </span><span data-line="39">
 </span><span data-line="40">    <span class="n">REDIRECT</span> <span class="o">=</span> <span class="s2">&quot;HX-Redirect&quot;</span>
@@ -228,9 +231,10 @@ data-aria-dark="Switch to auto color mode">
 </span><span data-line="58">    <span class="n">TRIGGER_ID</span> <span class="o">=</span> <span class="s2">&quot;HX-Trigger&quot;</span>  <span class="c1"># noqa: PIE796</span>
 </span><span data-line="59">    <span class="n">TRIGGER_NAME</span> <span class="o">=</span> <span class="s2">&quot;HX-Trigger-Name&quot;</span>
 </span><span data-line="60">    <span class="n">TRIGGERING_EVENT</span> <span class="o">=</span> <span class="s2">&quot;Triggering-Event&quot;</span></div>
+
 </span><span data-line="61">
 </span><span data-line="62">
-</span><span data-line="63"><span class="k">def</span> <span class="nf">get_trigger_event_headers</span><span class="p">(</span><span class="n">trigger_event</span><span class="p">:</span> <span class="n">TriggerEventType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+</span><span data-line="63"><span class="k">def</span><span class="w"> </span><span class="nf">get_trigger_event_headers</span><span class="p">(</span><span class="n">trigger_event</span><span class="p">:</span> <span class="n">TriggerEventType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 </span><span data-line="64"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return headers for trigger event response.&quot;&quot;&quot;</span>
 </span><span data-line="65">    <span class="n">after_params</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">EventAfterType</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
 </span><span data-line="66">        <span class="s2">&quot;receive&quot;</span><span class="p">:</span> <span class="n">HTMXHeaders</span><span class="o">.</span><span class="n">TRIGGER_EVENT</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
@@ -246,12 +250,12 @@ data-aria-dark="Switch to auto color mode">
 </span><span data-line="76">    <span class="p">)</span>
 </span><span data-line="77">
 </span><span data-line="78">
-</span><span data-line="79"><span class="k">def</span> <span class="nf">get_redirect_header</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+</span><span data-line="79"><span class="k">def</span><span class="w"> </span><span class="nf">get_redirect_header</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 </span><span data-line="80"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return headers for redirect response.&quot;&quot;&quot;</span>
 </span><span data-line="81">    <span class="k">return</span> <span class="p">{</span><span class="n">HTMXHeaders</span><span class="o">.</span><span class="n">REDIRECT</span><span class="o">.</span><span class="n">value</span><span class="p">:</span> <span class="n">quote</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">safe</span><span class="o">=</span><span class="s2">&quot;/#%[]=:;$&amp;()+,!?*@&#39;~&quot;</span><span class="p">),</span> <span class="s2">&quot;Location&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">}</span>
 </span><span data-line="82">
 </span><span data-line="83">
-</span><span data-line="84"><span class="k">def</span> <span class="nf">get_push_url_header</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="n">PushUrlType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+</span><span data-line="84"><span class="k">def</span><span class="w"> </span><span class="nf">get_push_url_header</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="n">PushUrlType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 </span><span data-line="85"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return headers for push url to browser history response.&quot;&quot;&quot;</span>
 </span><span data-line="86">    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
 </span><span data-line="87">        <span class="n">url</span> <span class="o">=</span> <span class="n">url</span> <span class="k">if</span> <span class="n">url</span> <span class="o">!=</span> <span class="s2">&quot;False&quot;</span> <span class="k">else</span> <span class="s2">&quot;false&quot;</span>
@@ -261,35 +265,35 @@ data-aria-dark="Switch to auto color mode">
 </span><span data-line="91">    <span class="k">return</span> <span class="p">{</span><span class="n">HTMXHeaders</span><span class="o">.</span><span class="n">PUSH_URL</span><span class="o">.</span><span class="n">value</span><span class="p">:</span> <span class="n">url</span><span class="p">}</span>
 </span><span data-line="92">
 </span><span data-line="93">
-</span><span data-line="94"><span class="k">def</span> <span class="nf">get_replace_url_header</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="n">PushUrlType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+</span><span data-line="94"><span class="k">def</span><span class="w"> </span><span class="nf">get_replace_url_header</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="n">PushUrlType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 </span><span data-line="95"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return headers for replace url in browser tab response.&quot;&quot;&quot;</span>
 </span><span data-line="96">    <span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="n">url</span> <span class="k">if</span> <span class="n">url</span> <span class="o">!=</span> <span class="s2">&quot;False&quot;</span> <span class="k">else</span> <span class="s2">&quot;false&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="s2">&quot;false&quot;</span>
 </span><span data-line="97">    <span class="k">return</span> <span class="p">{</span><span class="n">HTMXHeaders</span><span class="o">.</span><span class="n">REPLACE_URL</span><span class="p">:</span> <span class="n">url</span><span class="p">}</span>
 </span><span data-line="98">
 </span><span data-line="99">
-</span><span data-line="100"><span class="k">def</span> <span class="nf">get_refresh_header</span><span class="p">(</span><span class="n">refresh</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+</span><span data-line="100"><span class="k">def</span><span class="w"> </span><span class="nf">get_refresh_header</span><span class="p">(</span><span class="n">refresh</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 </span><span data-line="101"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return headers for client refresh response.&quot;&quot;&quot;</span>
 </span><span data-line="102">    <span class="k">return</span> <span class="p">{</span><span class="n">HTMXHeaders</span><span class="o">.</span><span class="n">REFRESH</span><span class="o">.</span><span class="n">value</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span> <span class="k">if</span> <span class="n">refresh</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">}</span>
 </span><span data-line="103">
 </span><span data-line="104">
-</span><span data-line="105"><span class="k">def</span> <span class="nf">get_reswap_header</span><span class="p">(</span><span class="n">method</span><span class="p">:</span> <span class="n">ReSwapMethod</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+</span><span data-line="105"><span class="k">def</span><span class="w"> </span><span class="nf">get_reswap_header</span><span class="p">(</span><span class="n">method</span><span class="p">:</span> <span class="n">ReSwapMethod</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 </span><span data-line="106"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return headers for change swap method response.&quot;&quot;&quot;</span>
 </span><span data-line="107">    <span class="k">return</span> <span class="p">{</span><span class="n">HTMXHeaders</span><span class="o">.</span><span class="n">RE_SWAP</span><span class="o">.</span><span class="n">value</span><span class="p">:</span> <span class="n">method</span><span class="p">}</span>
 </span><span data-line="108">
 </span><span data-line="109">
-</span><span data-line="110"><span class="k">def</span> <span class="nf">get_retarget_header</span><span class="p">(</span><span class="n">target</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+</span><span data-line="110"><span class="k">def</span><span class="w"> </span><span class="nf">get_retarget_header</span><span class="p">(</span><span class="n">target</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 </span><span data-line="111"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return headers for change target element response.&quot;&quot;&quot;</span>
 </span><span data-line="112">    <span class="k">return</span> <span class="p">{</span><span class="n">HTMXHeaders</span><span class="o">.</span><span class="n">RE_TARGET</span><span class="o">.</span><span class="n">value</span><span class="p">:</span> <span class="n">target</span><span class="p">}</span>
 </span><span data-line="113">
 </span><span data-line="114">
-</span><span data-line="115"><span class="k">def</span> <span class="nf">get_location_headers</span><span class="p">(</span><span class="n">location</span><span class="p">:</span> <span class="n">LocationType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+</span><span data-line="115"><span class="k">def</span><span class="w"> </span><span class="nf">get_location_headers</span><span class="p">(</span><span class="n">location</span><span class="p">:</span> <span class="n">LocationType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 </span><span data-line="116"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return headers for redirect without page-reload response.&quot;&quot;&quot;</span>
 </span><span data-line="117">    <span class="k">if</span> <span class="n">spec</span> <span class="o">:=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">value</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">location</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">value</span><span class="p">}:</span>
 </span><span data-line="118">        <span class="k">return</span> <span class="p">{</span><span class="n">HTMXHeaders</span><span class="o">.</span><span class="n">LOCATION</span><span class="o">.</span><span class="n">value</span><span class="p">:</span> <span class="n">encode_json</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()}</span>
 </span><span data-line="119">    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;redirect_to is required parameter.&quot;</span><span class="p">)</span>
 </span><span data-line="120">
 </span><span data-line="121">
-</span><span data-line="122"><span class="k">def</span> <span class="nf">get_headers</span><span class="p">(</span><span class="n">hx_headers</span><span class="p">:</span> <span class="n">HtmxHeaderType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+</span><span data-line="122"><span class="k">def</span><span class="w"> </span><span class="nf">get_headers</span><span class="p">(</span><span class="n">hx_headers</span><span class="p">:</span> <span class="n">HtmxHeaderType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 </span><span data-line="123"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return headers for HTMX responses.&quot;&quot;&quot;</span>
 </span><span data-line="124">    <span class="k">if</span> <span class="ow">not</span> <span class="n">hx_headers</span><span class="p">:</span>
 </span><span data-line="125">        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Value for hx_headers cannot be None.&quot;</span><span class="p">)</span>
@@ -355,12 +359,12 @@ data-aria-dark="Switch to auto color mode">
     </div>
   </div>
 </footer>
-      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=e43216b9"></script>
-      <script src="../../_static/doctools.js?v=888ff710"></script>
-      <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../../_static/documentation_options.js?v=8dde47fa"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../../_static/copybutton.js?v=f281be69"></script>
       <script src="../../_static/litestar-theme.js?v=ab2dcc9e"></script>
-      <script src="../../_static/design-tabs.js?v=36754332"></script>
-      <script src="../../_static/shibuya.js?v=e2e99575"></script></body>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=1d2088d1"></script></body>
 </html>
