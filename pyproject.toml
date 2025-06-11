@@ -24,7 +24,7 @@ maintainers = [
     { name = "Litestar Developers", email = "hello@litestar.dev" },
     { name = "Cody Fincher", email = "cody@litestar.dev" },
     { name = "Jacob Coffee", email = "jacob@litestar.dev" },
-    { name = "Janek Nouvertné", email = "provinzkraut@litestar.dev" }, 
+    { name = "Janek Nouvertné", email = "provinzkraut@litestar.dev" },
 ]
 name = "litestar-htmx"
 readme = "README.md"
@@ -183,6 +183,7 @@ lint.select = [
     "UP",  # pyupgrade
     "W",   # pycodestyle - warning
     "YTT", # flake8-2020
+
 ]
 
 line-length = 120
@@ -204,6 +205,7 @@ lint.ignore = [
     "PLW2901", # pylint - for loop variable overwritten by assignment target
     "RUF012",  # Ruff-specific rule - annotated with classvar
     "ISC001",  # Ruff formatter incompatible
+    "A005",    # Module shadows a python builtin
 ]
 src = ["litestar_htmx", "tests", "docs/examples"]
 target-version = "py38"
