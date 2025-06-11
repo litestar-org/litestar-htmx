@@ -305,70 +305,72 @@ data-aria-dark="Switch to auto color mode">
 </span><span data-line="135">        <span class="n">source</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 </span><span data-line="136">        <span class="n">event</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 </span><span data-line="137">        <span class="n">target</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-</span><span data-line="138">        <span class="n">swap</span><span class="p">:</span> <span class="n">ReSwapMethod</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-</span><span data-line="139">        <span class="n">hx_headers</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-</span><span data-line="140">        <span class="n">values</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-</span><span data-line="141">        <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
-</span><span data-line="142">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span data-line="143"><span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize HXLocation, Set status code to 200 (required by HTMX),</span>
-</span><span data-line="144"><span class="sd">        and pass redirect url.</span>
-</span><span data-line="145"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span data-line="146">        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
-</span><span data-line="147">            <span class="n">content</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-</span><span data-line="148">            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Location&quot;</span><span class="p">:</span> <span class="n">quote</span><span class="p">(</span><span class="n">redirect_to</span><span class="p">,</span> <span class="n">safe</span><span class="o">=</span><span class="s2">&quot;/#%[]=:;$&amp;()+,!?*@&#39;~&quot;</span><span class="p">)},</span>
-</span><span data-line="149">            <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-</span><span data-line="150">        <span class="p">)</span>
-</span><span data-line="151">        <span class="n">spec</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_headers</span><span class="p">(</span>
-</span><span data-line="152">            <span class="n">hx_headers</span><span class="o">=</span><span class="n">HtmxHeaderType</span><span class="p">(</span>
-</span><span data-line="153">                <span class="n">location</span><span class="o">=</span><span class="n">LocationType</span><span class="p">(</span>
-</span><span data-line="154">                    <span class="n">path</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Location&quot;</span><span class="p">)),</span>
-</span><span data-line="155">                    <span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span>
-</span><span data-line="156">                    <span class="n">event</span><span class="o">=</span><span class="n">event</span><span class="p">,</span>
-</span><span data-line="157">                    <span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="p">,</span>
-</span><span data-line="158">                    <span class="n">swap</span><span class="o">=</span><span class="n">swap</span><span class="p">,</span>
-</span><span data-line="159">                    <span class="n">values</span><span class="o">=</span><span class="n">values</span><span class="p">,</span>
-</span><span data-line="160">                    <span class="n">hx_headers</span><span class="o">=</span><span class="n">hx_headers</span><span class="p">,</span>
-</span><span data-line="161">                <span class="p">)</span>
-</span><span data-line="162">            <span class="p">)</span>
-</span><span data-line="163">        <span class="p">)</span>
-</span><span data-line="164">        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;Location&quot;</span><span class="p">]</span>
-</span><span data-line="165">        <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span></div></div>
-</span><span data-line="166">
-</span><span data-line="167">
-<div class="viewcode-block" id="HTMXTemplate"><a class="viewcode-back" href="../../reference/response.html#litestar_htmx.response.HTMXTemplate">[docs]</a></span><span data-line="168"><span class="k">class</span> <span class="nc">HTMXTemplate</span><span class="p">(</span><span class="n">Template</span><span class="p">):</span>
-</span><span data-line="169"><span class="w">    </span><span class="sd">&quot;&quot;&quot;HTMX template wrapper&quot;&quot;&quot;</span>
-</span><span data-line="170">
-<div class="viewcode-block" id="HTMXTemplate.__init__"><a class="viewcode-back" href="../../reference/response.html#litestar_htmx.response.HTMXTemplate.__init__">[docs]</a></span><span data-line="171">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-</span><span data-line="172">        <span class="bp">self</span><span class="p">,</span>
-</span><span data-line="173">        <span class="n">push_url</span><span class="p">:</span> <span class="n">PushUrlType</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-</span><span data-line="174">        <span class="n">re_swap</span><span class="p">:</span> <span class="n">ReSwapMethod</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-</span><span data-line="175">        <span class="n">re_target</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-</span><span data-line="176">        <span class="n">trigger_event</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-</span><span data-line="177">        <span class="n">params</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-</span><span data-line="178">        <span class="n">after</span><span class="p">:</span> <span class="n">EventAfterType</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-</span><span data-line="179">        <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
-</span><span data-line="180">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span data-line="181"><span class="w">        </span><span class="sd">&quot;&quot;&quot;Create HTMXTemplate response.</span>
-</span><span data-line="182">
-</span><span data-line="183"><span class="sd">        Args:</span>
-</span><span data-line="184"><span class="sd">            push_url: Either a string value specifying a URL to push to browser history or ``False`` to prevent HTMX client from</span>
-</span><span data-line="185"><span class="sd">                pushing a url to browser history.</span>
-</span><span data-line="186"><span class="sd">            re_swap: Method value to instruct HTMX which swapping method to use.</span>
-</span><span data-line="187"><span class="sd">            re_target: Value for &#39;id of target element&#39; to apply changes to.</span>
-</span><span data-line="188"><span class="sd">            trigger_event: Event name to trigger.</span>
-</span><span data-line="189"><span class="sd">            params: Dictionary of parameters if any required with trigger event parameter.</span>
-</span><span data-line="190"><span class="sd">            after: Changes to apply after ``receive``, ``settle`` or ``swap`` event.</span>
-</span><span data-line="191"><span class="sd">            **kwargs: Additional arguments to pass to ``Template``.</span>
-</span><span data-line="192"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span data-line="193">        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-</span><span data-line="194">
-</span><span data-line="195">        <span class="n">event</span><span class="p">:</span> <span class="n">TriggerEventType</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-</span><span data-line="196">        <span class="k">if</span> <span class="n">trigger_event</span><span class="p">:</span>
-</span><span data-line="197">            <span class="n">event</span> <span class="o">=</span> <span class="n">TriggerEventType</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">trigger_event</span><span class="p">),</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">after</span><span class="o">=</span><span class="n">after</span><span class="p">)</span>
-</span><span data-line="198">
-</span><span data-line="199">        <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
-</span><span data-line="200">            <span class="n">get_headers</span><span class="p">(</span><span class="n">HtmxHeaderType</span><span class="p">(</span><span class="n">push_url</span><span class="o">=</span><span class="n">push_url</span><span class="p">,</span> <span class="n">re_swap</span><span class="o">=</span><span class="n">re_swap</span><span class="p">,</span> <span class="n">re_target</span><span class="o">=</span><span class="n">re_target</span><span class="p">,</span> <span class="n">trigger_event</span><span class="o">=</span><span class="n">event</span><span class="p">))</span>
-</span><span data-line="201">        <span class="p">)</span></div></div>
+</span><span data-line="138">        <span class="n">select</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span data-line="139">        <span class="n">swap</span><span class="p">:</span> <span class="n">ReSwapMethod</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span data-line="140">        <span class="n">hx_headers</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span data-line="141">        <span class="n">values</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span data-line="142">        <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+</span><span data-line="143">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span data-line="144"><span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize HXLocation, Set status code to 200 (required by HTMX),</span>
+</span><span data-line="145"><span class="sd">        and pass redirect url.</span>
+</span><span data-line="146"><span class="sd">        &quot;&quot;&quot;</span>
+</span><span data-line="147">        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+</span><span data-line="148">            <span class="n">content</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+</span><span data-line="149">            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Location&quot;</span><span class="p">:</span> <span class="n">quote</span><span class="p">(</span><span class="n">redirect_to</span><span class="p">,</span> <span class="n">safe</span><span class="o">=</span><span class="s2">&quot;/#%[]=:;$&amp;()+,!?*@&#39;~&quot;</span><span class="p">)},</span>
+</span><span data-line="150">            <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+</span><span data-line="151">        <span class="p">)</span>
+</span><span data-line="152">        <span class="n">spec</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_headers</span><span class="p">(</span>
+</span><span data-line="153">            <span class="n">hx_headers</span><span class="o">=</span><span class="n">HtmxHeaderType</span><span class="p">(</span>
+</span><span data-line="154">                <span class="n">location</span><span class="o">=</span><span class="n">LocationType</span><span class="p">(</span>
+</span><span data-line="155">                    <span class="n">path</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Location&quot;</span><span class="p">)),</span>
+</span><span data-line="156">                    <span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span>
+</span><span data-line="157">                    <span class="n">event</span><span class="o">=</span><span class="n">event</span><span class="p">,</span>
+</span><span data-line="158">                    <span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="p">,</span>
+</span><span data-line="159">                    <span class="n">select</span><span class="o">=</span><span class="n">select</span><span class="p">,</span>
+</span><span data-line="160">                    <span class="n">swap</span><span class="o">=</span><span class="n">swap</span><span class="p">,</span>
+</span><span data-line="161">                    <span class="n">values</span><span class="o">=</span><span class="n">values</span><span class="p">,</span>
+</span><span data-line="162">                    <span class="n">hx_headers</span><span class="o">=</span><span class="n">hx_headers</span><span class="p">,</span>
+</span><span data-line="163">                <span class="p">)</span>
+</span><span data-line="164">            <span class="p">)</span>
+</span><span data-line="165">        <span class="p">)</span>
+</span><span data-line="166">        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;Location&quot;</span><span class="p">]</span>
+</span><span data-line="167">        <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span></div></div>
+</span><span data-line="168">
+</span><span data-line="169">
+<div class="viewcode-block" id="HTMXTemplate"><a class="viewcode-back" href="../../reference/response.html#litestar_htmx.response.HTMXTemplate">[docs]</a></span><span data-line="170"><span class="k">class</span> <span class="nc">HTMXTemplate</span><span class="p">(</span><span class="n">Template</span><span class="p">):</span>
+</span><span data-line="171"><span class="w">    </span><span class="sd">&quot;&quot;&quot;HTMX template wrapper&quot;&quot;&quot;</span>
+</span><span data-line="172">
+<div class="viewcode-block" id="HTMXTemplate.__init__"><a class="viewcode-back" href="../../reference/response.html#litestar_htmx.response.HTMXTemplate.__init__">[docs]</a></span><span data-line="173">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+</span><span data-line="174">        <span class="bp">self</span><span class="p">,</span>
+</span><span data-line="175">        <span class="n">push_url</span><span class="p">:</span> <span class="n">PushUrlType</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span data-line="176">        <span class="n">re_swap</span><span class="p">:</span> <span class="n">ReSwapMethod</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span data-line="177">        <span class="n">re_target</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span data-line="178">        <span class="n">trigger_event</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span data-line="179">        <span class="n">params</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span data-line="180">        <span class="n">after</span><span class="p">:</span> <span class="n">EventAfterType</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span data-line="181">        <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+</span><span data-line="182">    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span data-line="183"><span class="w">        </span><span class="sd">&quot;&quot;&quot;Create HTMXTemplate response.</span>
+</span><span data-line="184">
+</span><span data-line="185"><span class="sd">        Args:</span>
+</span><span data-line="186"><span class="sd">            push_url: Either a string value specifying a URL to push to browser history or ``False`` to prevent HTMX client from</span>
+</span><span data-line="187"><span class="sd">                pushing a url to browser history.</span>
+</span><span data-line="188"><span class="sd">            re_swap: Method value to instruct HTMX which swapping method to use.</span>
+</span><span data-line="189"><span class="sd">            re_target: Value for &#39;id of target element&#39; to apply changes to.</span>
+</span><span data-line="190"><span class="sd">            trigger_event: Event name to trigger.</span>
+</span><span data-line="191"><span class="sd">            params: Dictionary of parameters if any required with trigger event parameter.</span>
+</span><span data-line="192"><span class="sd">            after: Changes to apply after ``receive``, ``settle`` or ``swap`` event.</span>
+</span><span data-line="193"><span class="sd">            **kwargs: Additional arguments to pass to ``Template``.</span>
+</span><span data-line="194"><span class="sd">        &quot;&quot;&quot;</span>
+</span><span data-line="195">        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</span><span data-line="196">
+</span><span data-line="197">        <span class="n">event</span><span class="p">:</span> <span class="n">TriggerEventType</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span data-line="198">        <span class="k">if</span> <span class="n">trigger_event</span><span class="p">:</span>
+</span><span data-line="199">            <span class="n">event</span> <span class="o">=</span> <span class="n">TriggerEventType</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">trigger_event</span><span class="p">),</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">after</span><span class="o">=</span><span class="n">after</span><span class="p">)</span>
+</span><span data-line="200">
+</span><span data-line="201">        <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+</span><span data-line="202">            <span class="n">get_headers</span><span class="p">(</span><span class="n">HtmxHeaderType</span><span class="p">(</span><span class="n">push_url</span><span class="o">=</span><span class="n">push_url</span><span class="p">,</span> <span class="n">re_swap</span><span class="o">=</span><span class="n">re_swap</span><span class="p">,</span> <span class="n">re_target</span><span class="o">=</span><span class="n">re_target</span><span class="p">,</span> <span class="n">trigger_event</span><span class="o">=</span><span class="n">event</span><span class="p">))</span>
+</span><span data-line="203">        <span class="p">)</span></div></div>
 </span></pre></div>
         </article><button class="back-to-top" type="button">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
