@@ -18,20 +18,18 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 dependencies = []
-description = "HTMX Integration for Litesstar"
+description = "HTMX Integration for Litestar"
 license = { text = "MIT" }
 maintainers = [
     { name = "Litestar Developers", email = "hello@litestar.dev" },
     { name = "Cody Fincher", email = "cody@litestar.dev" },
     { name = "Jacob Coffee", email = "jacob@litestar.dev" },
-    { name = "Janek Nouvertné", email = "provinzkraut@litestar.dev" },
-    { name = "Visakh Unnikrishnan", email = "guacs@litestar.dev" },
-    { name = "Alc", email = "alc@litestar.dev" },
+    { name = "Janek Nouvertné", email = "provinzkraut@litestar.dev" }, 
 ]
 name = "litestar-htmx"
 readme = "README.md"
-requires-python = ">=3.8, <4.0"
-version = "0.4.1"
+requires-python = ">=3.9, <4.0"
+version = "0.5.0"
 
 [build-system]
 build-backend = "hatchling.build"
