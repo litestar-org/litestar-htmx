@@ -219,6 +219,7 @@ async def test_hx_location_response_with_all_parameters() -> None:
             source="#button",
             event="click",
             target="#content",
+            select="#content",
             swap="innerHTML",
             hx_headers={"attribute": "value"},
             values={"action": "true"},
@@ -230,7 +231,7 @@ async def test_hx_location_response_with_all_parameters() -> None:
         assert response.status_code == HTTP_200_OK
         assert "Location" not in response.headers
         assert spec == (
-            '{"path":"/contact-us","source":"#button","event":"click","target":"#content","swap":"innerHTML",'
+            '{"path":"/contact-us","source":"#button","event":"click","target":"#content","select":"#content","swap":"innerHTML",'
             '"values":{"action":"true"},"hx_headers":{"attribute":"value"}}'
         )
 

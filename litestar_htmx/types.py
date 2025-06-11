@@ -24,6 +24,7 @@ class LocationType(TypedDict):
     source: str | None
     event: str | None
     target: str | None
+    select: str | None
     swap: ReSwapMethod | None
     values: dict[str, str] | None
     hx_headers: dict[str, Any] | None
