@@ -2,11 +2,11 @@ from __future__ import annotations
 
 from contextlib import suppress
 from functools import cached_property
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING, Any, Generic
 from urllib.parse import unquote, urlsplit, urlunsplit
 
 from litestar import Request
-from litestar.connection.base import empty_receive, empty_send
+from litestar.connection.base import AuthT, StateT, UserT, empty_receive, empty_send
 from litestar.exceptions import SerializationException
 from litestar.serialization import decode_json
 
@@ -103,7 +103,7 @@ class HTMXDetails:
         return None
 
 
-class HTMXRequest(Request):
+class HTMXRequest(Generic[UserT, AuthT, StateT], Request[UserT, AuthT, StateT]):
     """HTMX Request class to work with HTMX client."""
 
     __slots__ = ("htmx",)
