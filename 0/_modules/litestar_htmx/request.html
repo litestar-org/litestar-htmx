@@ -173,11 +173,11 @@ data-aria-dark="Switch to auto color mode">
 </span><span data-line="2">
 </span><span data-line="3"><span class="kn">from</span><span class="w"> </span><span class="nn">contextlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">suppress</span>
 </span><span data-line="4"><span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">cached_property</span>
-</span><span data-line="5"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Any</span>
+</span><span data-line="5"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Generic</span>
 </span><span data-line="6"><span class="kn">from</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="kn">import</span> <span class="n">unquote</span><span class="p">,</span> <span class="n">urlsplit</span><span class="p">,</span> <span class="n">urlunsplit</span>
 </span><span data-line="7">
 </span><span data-line="8"><span class="kn">from</span><span class="w"> </span><span class="nn">litestar</span><span class="w"> </span><span class="kn">import</span> <span class="n">Request</span>
-</span><span data-line="9"><span class="kn">from</span><span class="w"> </span><span class="nn">litestar.connection.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">empty_receive</span><span class="p">,</span> <span class="n">empty_send</span>
+</span><span data-line="9"><span class="kn">from</span><span class="w"> </span><span class="nn">litestar.connection.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">AuthT</span><span class="p">,</span> <span class="n">StateT</span><span class="p">,</span> <span class="n">UserT</span><span class="p">,</span> <span class="n">empty_receive</span><span class="p">,</span> <span class="n">empty_send</span>
 </span><span data-line="10"><span class="kn">from</span><span class="w"> </span><span class="nn">litestar.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">SerializationException</span>
 </span><span data-line="11"><span class="kn">from</span><span class="w"> </span><span class="nn">litestar.serialization</span><span class="w"> </span><span class="kn">import</span> <span class="n">decode_json</span>
 </span><span data-line="12">
@@ -285,7 +285,7 @@ data-aria-dark="Switch to auto color mode">
 </span><span data-line="105">
 <div class="viewcode-block" id="HTMXRequest">
 <a class="viewcode-back" href="../../reference/request.html#litestar_htmx.request.HTMXRequest">[docs]</a>
-</span><span data-line="106"><span class="k">class</span><span class="w"> </span><span class="nc">HTMXRequest</span><span class="p">(</span><span class="n">Request</span><span class="p">):</span>
+</span><span data-line="106"><span class="k">class</span><span class="w"> </span><span class="nc">HTMXRequest</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">UserT</span><span class="p">,</span> <span class="n">AuthT</span><span class="p">,</span> <span class="n">StateT</span><span class="p">],</span> <span class="n">Request</span><span class="p">[</span><span class="n">UserT</span><span class="p">,</span> <span class="n">AuthT</span><span class="p">,</span> <span class="n">StateT</span><span class="p">]):</span>
 </span><span data-line="107"><span class="w">    </span><span class="sd">&quot;&quot;&quot;HTMX Request class to work with HTMX client.&quot;&quot;&quot;</span>
 </span><span data-line="108">
 </span><span data-line="109">    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;htmx&quot;</span><span class="p">,)</span>
