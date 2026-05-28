@@ -9,7 +9,6 @@
   <!-- github-banner-end -->
 
 </p>
-<div align="center">
 <!-- markdownlint-restore -->
 
 # The HTMX Plugin for Litestar
