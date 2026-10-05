@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from collections.abc import Mapping
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Callable, cast
 from urllib.parse import quote
@@ -69,7 +70,17 @@ def get_trigger_event_headers(trigger_event: TriggerEventType) -> dict[str, Any]
     }
 
     if trigger_header := after_params.get(trigger_event["after"]):
-        return {trigger_header: encode_json({trigger_event["name"]: trigger_event["params"] or {}}).decode()}
+        name = trigger_event["name"]
+        params = trigger_event["params"]
+        if isinstance(name, Mapping):
+            if params is not None:
+                raise ImproperlyConfiguredException("'params' cannot be used with a mapping of event names to details.")
+            events = dict(name)
+        elif isinstance(name, str):
+            events = {name: params or {}}
+        else:
+            events = {event_name: params or {} for event_name in name}
+        return {trigger_header: encode_json(events).decode()}
 
     raise ImproperlyConfiguredException(
         "invalid value for 'after' param- allowed values are 'receive', 'settle' or 'swap'."

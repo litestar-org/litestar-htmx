@@ -14,6 +14,7 @@ from litestar_htmx.types import (
     LocationType,
     PushUrlType,
     ReSwapMethod,
+    TriggerEventNameType,
     TriggerEventType,
 )
 
@@ -110,17 +111,25 @@ class Retarget(Generic[T], Response[T]):
 
 
 class TriggerEvent(Generic[T], Response[T]):
-    """Trigger Client side event."""
+    """Trigger one or more client side events."""
 
     def __init__(
         self,
         content: T,
-        name: str,
+        name: TriggerEventNameType,
         after: EventAfterType,
         params: dict[str, Any] | None = None,
         **kwargs: Any,
     ) -> None:
-        """Initialize TriggerEvent."""
+        """Initialize TriggerEvent.
+
+        Args:
+            content: Response content.
+            name: Event name, sequence of event names, or mapping of event names to JSON-compatible details.
+            after: Trigger events after ``receive``, ``settle`` or ``swap``.
+            params: Parameters shared by events in a name or sequence. Cannot be used with a mapping.
+            **kwargs: Additional arguments to pass to ``Response``.
+        """
         event = TriggerEventType(name=name, params=params, after=after)
         headers = get_headers(hx_headers=HtmxHeaderType(trigger_event=event))
         super().__init__(content=content, headers=headers, **kwargs)
@@ -175,7 +184,7 @@ class HTMXTemplate(Template):
         push_url: PushUrlType | None = None,
         re_swap: ReSwapMethod | None = None,
         re_target: str | None = None,
-        trigger_event: str | None = None,
+        trigger_event: TriggerEventNameType | None = None,
         params: dict[str, Any] | None = None,
         after: EventAfterType | None = None,
         **kwargs: Any,
@@ -187,16 +196,16 @@ class HTMXTemplate(Template):
                 pushing a url to browser history.
             re_swap: Method value to instruct HTMX which swapping method to use.
             re_target: Value for 'id of target element' to apply changes to.
-            trigger_event: Event name to trigger.
-            params: Dictionary of parameters if any required with trigger event parameter.
+            trigger_event: Event name, sequence of event names, or mapping of event names to JSON-compatible details.
+            params: Parameters shared by events in a name or sequence. Cannot be used with a mapping.
             after: Changes to apply after ``receive``, ``settle`` or ``swap`` event.
             **kwargs: Additional arguments to pass to ``Template``.
         """
         super().__init__(**kwargs)
 
         event: TriggerEventType | None = None
-        if trigger_event:
-            event = TriggerEventType(name=str(trigger_event), params=params, after=after)
+        if trigger_event is not None and trigger_event != "":
+            event = TriggerEventType(name=trigger_event, params=params, after=after)
 
         self.headers.update(
             get_headers(HtmxHeaderType(push_url=push_url, re_swap=re_swap, re_target=re_target, trigger_event=event))

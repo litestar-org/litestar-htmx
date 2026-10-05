@@ -1,14 +1,24 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Literal, TypedDict, Union
+from typing import TYPE_CHECKING, Any, Literal, Mapping, Sequence, TypedDict, Union
 
-__all__ = ("EventAfterType", "HtmxHeaderType", "LocationType", "PushUrlType", "ReSwapMethod", "TriggerEventType")
+__all__ = (
+    "EventAfterType",
+    "HtmxHeaderType",
+    "LocationType",
+    "PushUrlType",
+    "ReSwapMethod",
+    "TriggerEventNameType",
+    "TriggerEventType",
+)
 
 if TYPE_CHECKING:
     from typing_extensions import Required
 
 
 EventAfterType = Literal["receive", "settle", "swap", None]
+
+TriggerEventNameType = Union[str, Sequence[str], Mapping[str, Any]]
 
 PushUrlType = Union[str, bool]
 
@@ -33,7 +43,7 @@ class LocationType(TypedDict):
 class TriggerEventType(TypedDict):
     """Type for HX-Trigger header."""
 
-    name: Required[str]
+    name: Required[TriggerEventNameType]
     params: dict[str, Any] | None
     after: EventAfterType | None
 

@@ -20,6 +20,7 @@ from litestar_htmx.types import (
     LocationType,
     PushUrlType,
     ReSwapMethod,
+    TriggerEventNameType,
     TriggerEventType,
 )
 
@@ -44,5 +45,6 @@ __all__ = (
     "Reswap",
     "Retarget",
     "TriggerEvent",
+    "TriggerEventNameType",
     "TriggerEventType",
 )
