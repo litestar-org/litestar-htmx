@@ -34,7 +34,7 @@ extensions = [
 ]
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3", None),
-    "msgspec": ("https://jcristharif.com/msgspec/", None),
+    "msgspec": ("https://msgspec.dev/", None),
     "anyio": ("https://anyio.readthedocs.io/en/stable/", None),
     "click": ("https://click.palletsprojects.com/en/8.1.x/", None),
     "litestar": ("https://docs.litestar.dev/latest/", None),
@@ -46,7 +46,12 @@ PY_ATTR = "py:attr"
 PY_OBJ = "py:obj"
 
 nitpicky = True
-nitpick_ignore: list[tuple[str, Any]] = []
+# Litestar's request type variables have no public documentation targets.
+nitpick_ignore: list[tuple[str, Any]] = [
+    (PY_OBJ, "litestar.connection.base.UserT"),
+    (PY_OBJ, "litestar.connection.base.AuthT"),
+    (PY_OBJ, "litestar.connection.base.StateT"),
+]
 nitpick_ignore_regex = [
     (PY_RE, r"litestar_htmx.*\.T"),
 ]
