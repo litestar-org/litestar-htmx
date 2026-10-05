@@ -12,8 +12,9 @@ from litestar.exceptions import ImproperlyConfiguredException
 from litestar.template.config import TemplateConfig
 from litestar.testing import create_test_client
 
+from litestar_htmx import TriggerEventNameType
 from litestar_htmx.response import HTMXTemplate, TriggerEvent
-from litestar_htmx.types import EventAfterType, TriggerEventNameType
+from litestar_htmx.types import EventAfterType
 
 
 @pytest.mark.parametrize(
