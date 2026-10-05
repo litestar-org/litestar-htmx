@@ -101,6 +101,62 @@ an :class:`HTMXTemplate <litestar_htmx.response.HTMXTemplate>` response:
     - ``trigger_event``, ``params``, and ``after parameters`` are linked to one another.
     - If you are triggering an event then ``after`` is required and it must be one of ``receive``, ``settle``, or ``swap``.
 
+Triggering multiple events
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Pass a sequence of event names to ``HTMXTemplate.trigger_event`` or ``TriggerEvent.name``
+to trigger several events at the same time:
+
+.. code-block:: python
+
+    return HTMXTemplate(
+        template_name="partial.html",
+        trigger_event=["update_user_roles", "update_role_permissions"],
+        after="swap",
+    )
+
+The response sends ``HX-Trigger-After-Swap: {"update_user_roles":{},"update_role_permissions":{}}``.
+If you also pass ``params``, those parameters are shared by every event in the sequence.
+
+To give each event its own details, pass a mapping of event names to JSON-compatible
+values. Values may be strings, objects, or other JSON values:
+
+.. code-block:: python
+
+    return HTMXTemplate(
+        template_name="partial.html",
+        trigger_event={
+            "showMessage": {"message": "Permissions updated", "level": "info"},
+            "update_user_roles": {},
+        },
+        after="swap",
+    )
+
+The same forms are supported by :class:`TriggerEvent <litestar_htmx.response.TriggerEvent>`:
+
+.. code-block:: python
+
+    return TriggerEvent(
+        content="Success!",
+        name={"event1": "A message", "event2": "Another message"},
+        after="receive",
+    )
+
+``after`` applies to all events in the sequence or mapping and remains required.
+Do not pass ``params`` with a mapping: the mapping already specifies each event's
+details, and combining the two raises ``ImproperlyConfiguredException``.
+Existing single-event calls using a string keep their behavior.
+
+You can also set trigger headers directly, including comma-separated event names
+without details, as described in the `htmx trigger header documentation <https://htmx.org/headers/hx-trigger/>`_:
+
+.. code-block:: python
+
+    return HTMXTemplate(
+        template_name="partial.html",
+        headers={"HX-Trigger-After-Swap": "update_user_roles, update_role_permissions"},
+    )
+
 HTMX provides two types of responses - one that doesn't allow changes to the DOM and one that does.
 Litestar supports both of these:
 
