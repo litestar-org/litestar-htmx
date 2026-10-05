@@ -204,7 +204,7 @@ class HTMXTemplate(Template):
         super().__init__(**kwargs)
 
         event: TriggerEventType | None = None
-        if trigger_event:
+        if trigger_event is not None and trigger_event != "":
             event = TriggerEventType(name=trigger_event, params=params, after=after)
 
         self.headers.update(

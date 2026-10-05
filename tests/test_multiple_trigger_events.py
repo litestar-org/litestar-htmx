@@ -6,7 +6,7 @@ from types import MappingProxyType
 from typing import Any
 
 import pytest
-from litestar import get
+from litestar import Response, get
 from litestar.contrib.jinja import JinjaTemplateEngine
 from litestar.exceptions import ImproperlyConfiguredException
 from litestar.template.config import TemplateConfig
@@ -65,7 +65,7 @@ def test_multiple_trigger_events(
     (tmp_path / "partial.html").write_text("Success!")
 
     @get("/")
-    def handler() -> HTMXTemplate | TriggerEvent[str]:
+    def handler() -> Response[Any]:
         if use_template:
             return HTMXTemplate(template_name="partial.html", trigger_event=events, params=params, after=after)
         return TriggerEvent(content="Success!", name=events, params=params, after=after)
@@ -83,12 +83,15 @@ def test_multiple_trigger_events(
 
 @pytest.mark.parametrize("use_template", (False, True))
 @pytest.mark.parametrize("params", ({}, {"alert": "Ambiguous"}))
-def test_event_dictionary_rejects_separate_params(use_template: bool, params: dict[str, Any]) -> None:
+@pytest.mark.parametrize("events", ({}, {"event1": {}}))
+def test_event_dictionary_rejects_separate_params(
+    use_template: bool, params: dict[str, Any], events: dict[str, Any]
+) -> None:
     with pytest.raises(ImproperlyConfiguredException, match="params"):
         if use_template:
-            HTMXTemplate(template_name="partial.html", trigger_event={"event1": {}}, params=params, after="receive")
+            HTMXTemplate(template_name="partial.html", trigger_event=events, params=params, after="receive")
         else:
-            TriggerEvent(content="Success!", name={"event1": {}}, params=params, after="receive")
+            TriggerEvent(content="Success!", name=events, params=params, after="receive")
 
 
 @pytest.mark.parametrize("events", (["event1", "event2"], {"event1": {}, "event2": {}}))
@@ -99,3 +102,19 @@ def test_multiple_trigger_events_require_valid_after(events: TriggerEventNameTyp
             HTMXTemplate(template_name="partial.html", trigger_event=events)
         else:
             TriggerEvent(content="Success!", name=events, after=None)
+
+
+@pytest.mark.parametrize("events", ([], {}))
+@pytest.mark.parametrize("use_template", (False, True))
+def test_empty_trigger_events(events: TriggerEventNameType, use_template: bool) -> None:
+    response: Response[Any]
+    if use_template:
+        response = HTMXTemplate(template_name="partial.html", trigger_event=events, after="receive")
+    else:
+        response = TriggerEvent(content="Success!", name=events, after="receive")
+    assert response.headers["HX-Trigger"] == "{}"
+
+
+def test_template_empty_event_name_preserves_no_trigger() -> None:
+    response = HTMXTemplate(template_name="partial.html", trigger_event="")
+    assert "HX-Trigger" not in response.headers
